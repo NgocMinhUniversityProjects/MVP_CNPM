@@ -1,11 +1,40 @@
+/*Import font Epilogue from google font*/
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Lexend:wght@100..900&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "Epilogue", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-weight: normal;
+  overflow-y: scroll;
+
+  /* Variable section */
+
+  /* Color */
+  --color-main-dark : #032B91;
+  --color-main-light : #1488DB;
+  --color-sub-green : #16A34A;
+  --color-sub-red : #DC3545;
+  --color-sub-yellow : #F1C40F;
+  --color-sub-black : black;
+  --color-sub-white : white;
+
+  /* Spacing */
+  --hoz-pad : 5vw;
+
 }
+
+.bold {
+  font-weight: bold;
+}
+
+html { scrollbar-width: none; } /* Firefox */
+body { -ms-overflow-style: none; } /* IE and Edge */
+body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; } /* Chrome */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

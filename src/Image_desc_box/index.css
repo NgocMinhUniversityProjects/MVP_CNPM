@@ -1,0 +1,30 @@
+.Image-desc-box {
+    width : calc(70 * 90vh / 100);
+    height: 90vh;
+
+    border : 1px solid orange;
+
+    padding-bottom: 4.5vh;
+
+    font-size: 28px;
+}
+
+.Image-desc-box .img {
+    height: 70%;
+    background-color: var(--color-sub-white);
+    background-size: cover;
+    background-position: center;
+}
+
+.Image-desc-box .title {
+    font-size: 25px;
+    height: 10%;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-top: 15px;
+}
+
+.Image-desc-box .desc {
+    padding-left: 5px;
+    height: 20%;
+}
