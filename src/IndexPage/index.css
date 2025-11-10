@@ -5,6 +5,9 @@
 
   align-items : center;
   flex-direction: column;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .IndexPage .Opening-box {
@@ -20,8 +23,6 @@
   margin-right: calc(100vw - 75vw - var(--hoz-pad));
   margin-top: 10vh;
   margin-bottom: 5vh;
-
-  border: 1px solid red;
 }
 
 .IndexPage .Opening-box .Title {
@@ -65,7 +66,6 @@
   width : calc(100vw - var(--hoz-pad) * 2);
   margin-top: 5vh;
   margin-bottom: 5vh;
-  border : 1px solid blue;
 
   display: flex;
   flex-direction: row;
@@ -79,7 +79,8 @@
   width : calc(100vw - var(--hoz-pad) * 2);
   height : 60vh;
 
-  border : 1px solid green
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .IndexPage .Partners .text {
@@ -91,33 +92,190 @@
 /* no slide show yet, animation later */
 /* no actual images either, its late */
 .IndexPage .Partners .image-slide-show {
+  width : 100%;
   margin-top: 5vh;
-  border: 1px solid black;
 
   display: flex;
   flex-direction: row;
+
+  animation: scroll-left 20s linear infinite;
 }
 
 .IndexPage .Partners .image-slide-show .img {
   height : calc(60vh - 35px - 10vh - 15px);
-  aspect-ratio: 1;
+  width : auto;
+  min-width: calc(60vh - 35px - 10vh - 15px);
+  /* aspect-ratio: 1; */
 
-  border : 1px solid pink;
-  margin: 15px;
+  flex-shrink: 0; /* Prevent items from shrinking */
+
+  background-size: cover;
+  background-position: center;
+
+  background-color: var(--color-sub-white);
+
+  margin-right: 8vw;
 }
 
 .IndexPage .Partners .image-slide-show .img1 {
-  background-color: var(--color-sub-red);
+  background-image: url("../../public/PN1.png");
 }
 
 .IndexPage .Partners .image-slide-show .img2 {
-  background-color: var(--color-sub-green);
+  background-image: url("../../public/PN2.png");
 }
 
 .IndexPage .Partners .image-slide-show .img3 {
-  background-color: var(--color-sub-yellow);
+  background-image: url("../../public/PN3.png");
 }
 
+.IndexPage .Partners .image-slide-show .img4 {
+  background-image: url("../../public/PN4.png");
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-105%);
+    }
+}
+
+.IndexPage .Features {
+  width : calc(100vw - var(--hoz-pad) * 2);
+  height : 90vh;
+
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  padding-left: calc(var(--hoz-pad) * 2);
+  padding-right: calc(var(--hoz-pad) * 2);
+
+  background-color: var(--color-main-light);
+}
+
+.IndexPage .Features .title {
+  color : var(--color-sub-white);
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  margin-top: 15px;
+}
+
+.IndexPage .Features .item-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 5vh;
+}
+
+.IndexPage .Features .item {
+  margin: 20px;
+  
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 50vh;
+  width : 20vw;
+
+  border-radius: 25px;
+  background-color: var(--color-main-dark);
+}
+
+.IndexPage .Features .item .img {
+  height: 40%;
+  width : 18vw;
+
+  margin-bottom: 15px;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.IndexPage .Features .item .text {
+  background-color: var(--color-sub-white);
+  border : 5px solid var(--color-main-dark);
+
+  font-size: 25px;
+  font-weight: bold;
+
+  color : var(--color-main-dark);
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  height: 40%;
+  width : 18vw;
+}
+
+.IndexPage .Features .item1 .img {
+  background-image: url("../../public/FEAT1.png");
+}
+
+.IndexPage .Features .item2 .img {
+  background-image: url("../../public/FEAT3.png");
+}
+
+.IndexPage .Features .call-to-action {
+  margin-top: 5vh;
+  margin-left: 40%;
+  margin-right: 40%;
+
+  padding: 15px;
+  padding-top: 25px;
+
+  font-size: 30px;
+  font-weight: bold;
+  color : white;
+
+  text-align: center;
+
+  background-color: var(--color-main-dark);
+
+  border-radius: 25px;
+}
+
+.IndexPage .Testimonials {
+
+  width : calc(100vw - var(--hoz-pad) * 2);
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.IndexPage .Testimonials .title {
+  font-size: 30px;
+  font-weight: bold;
+
+  align-self: left;
+
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.IndexPage .Testimonials .user-container {
+  width : 100%;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-evenly;
+
+  margin-bottom: 5vh;
+}
 
 
 .IndexPage .Pad-end {

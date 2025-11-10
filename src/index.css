@@ -22,6 +22,7 @@ body {
   --color-sub-yellow : #F1C40F;
   --color-sub-black : black;
   --color-sub-white : white;
+  --color-sub-grey : #6d82a4be;
 
   /* Spacing */
   --hoz-pad : 5vw;

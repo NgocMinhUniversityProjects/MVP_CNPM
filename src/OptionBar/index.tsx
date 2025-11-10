@@ -17,7 +17,7 @@ function parseOption(o : option){
     }
 }
 
-export default function Header(config : HeaderProps){
+export function Header(config : HeaderProps){
     const o_left = config.options_left.map(o => parseOption(o))
     const o_right = config.options_right.map(o => parseOption(o))
     
@@ -33,3 +33,21 @@ export default function Header(config : HeaderProps){
         </div>
     )
 }
+
+export function Footer(config : HeaderProps){
+    const o_left = config.options_left.map(o => parseOption(o))
+    const o_right = config.options_right.map(o => parseOption(o))
+    
+    return (
+        <div className = "Footer">
+            <div className="part left">
+                {o_left}
+            </div>
+            {/* <div className = "part pad"></div> */}
+            <div className="part right">
+                {o_right}
+            </div>
+        </div>
+    )
+}
+

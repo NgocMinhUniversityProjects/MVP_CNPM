@@ -1,0 +1,40 @@
+.user-testimonial {
+    width : 20vw;
+    height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 25px;
+    border : 5px solid var(--color-main-light)
+}
+
+.user-testimonial .comment {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color : var(--color-sub-grey);
+
+    margin-bottom : 10vh;
+}
+
+.user-testimonial .info {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.user-testimonial .info .info-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+}
+

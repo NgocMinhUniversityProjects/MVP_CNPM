@@ -18,12 +18,9 @@ And connect to the hosted URl using your browser of choice.
 4 pages shall be included in this MVP:
 
 + Login / Signup page
-+ Main page
++ Main page (Complete)
 + Calendar edit page
 + Meeting page
 
 All data included have not been linked with a database but will be in the finished version.
-
-
-Only the main page exist for now, every other page is not implemented yet.
 
