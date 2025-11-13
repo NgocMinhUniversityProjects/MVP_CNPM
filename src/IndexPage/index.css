@@ -234,6 +234,8 @@
   padding-top: 25px;
 
   font-size: 30px;
+  text-decoration: none;
+  font-style: none;
   font-weight: bold;
   color : white;
 
@@ -279,7 +281,7 @@
 
 
 .IndexPage .Pad-end {
-  height : 100vh;
+  height : 30vh;
 }
 
 .IndexPage .side1 {

@@ -1,7 +1,9 @@
 import "./index.css"
+import { Link } from "react-router-dom"
 import React from "react"
 type HREF = string
 type option = string | [string, HREF]
+
 
 interface HeaderProps {
     options_right : option[],
@@ -11,7 +13,7 @@ interface HeaderProps {
 function parseOption(o : option){
     if(Array.isArray(o)){
         const [option, href] = o
-        return <a className="option" href={href}>{option}</a>
+        return <Link className="option" to={href}>{option}</Link>
     } else {
         return <div className="option">{o}</div>
     }

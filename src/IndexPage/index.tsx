@@ -2,7 +2,7 @@
 import "./index.css"
 import ImageDescBox from "../Image_desc_box";
 import Testimonials from "../Testimonials";
-import { Footer } from "../OptionBar";
+import { Link } from "react-router-dom";
 
 function IndexPage() {
   return (
@@ -76,7 +76,9 @@ function IndexPage() {
           </div>
         </div>
 
-        <div className="call-to-action">Get started!</div>
+        <div className="call-to-action">
+          <Link to="/signup?role=student"> Get started! </Link>
+        </div>
 
       </div>
 
@@ -86,20 +88,14 @@ function IndexPage() {
         <div className="user-container">
 
           <Testimonials userName="Minh" comment="Fantastic user experience." info="Freshman at HCMUT" />
-          <Testimonials userName="Thanh" comment="Lorem ipsum" info="3rd year student at USSH"/>
-          <Testimonials userName="Hoa" comment="Lorem ipsum dairy flower kkkkk" info="2rd year student at UIT"/>
+          <Testimonials userName="Linh" comment="Excellent user experience, I only need one account for both for studying and for teaching" info="4rd year student at USSH"/>
+          <Testimonials userName="Thảo" comment="Great site, saved me before the finals" info="2rd year student at UIT"/>
 
         </div>
       </div>
 
       {/* Blank padding at the end */}
       <div className = "Pad-end"></div>
-
-      {/* Footer */}
-      <Footer 
-        options_left={["Contact us:", "Email", "Facebook", "Github"]}
-        options_right={["About us", "MVP code link"]}
-      />
     </div>
   );  
 }

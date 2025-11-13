@@ -15,9 +15,14 @@
 
     background-color: var(--color-sub-white);
 
-    border: 1px solid red;
+    /* border: 1px solid var(--color-main-dark); */
 
     z-index: 1;
+
+    text-decoration: none;
+    color : var(--color-main-dark);
+
+    font-weight: bold;
 }
 
 
@@ -60,9 +65,12 @@
 
     background-color: var(--color-sub-white);
 
-    border: 1px solid red;
+    border-top: 1px solid var(--color-sub-grey);
 
     z-index: 1;
+
+    text-decoration: none;
+    color : var(--color-main-dark);
 }
 
 

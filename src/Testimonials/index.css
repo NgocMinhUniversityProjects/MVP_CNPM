@@ -18,6 +18,8 @@
     font-style: italic;
     color : var(--color-sub-grey);
 
+    text-align: center;
+
     margin-bottom : 10vh;
 }
 
