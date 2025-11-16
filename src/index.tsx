@@ -15,7 +15,7 @@ import LoginPage from "./Login/index.tsx"
 import AccountMain from './Account_main/index.tsx';
 import AccountCalendar from './Account_schedule/index.tsx';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import AccountBook from './Account_book/index.tsx';
 import AccountSession from './Account_session/index.tsx';
 
