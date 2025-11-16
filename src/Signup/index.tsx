@@ -1,4 +1,5 @@
 import "./index.css"
+import { Link } from "react-router-dom"
 
 interface SignupChoiceProps {
     imgClass : string
@@ -9,7 +10,7 @@ function SignupChoice(props : SignupChoiceProps){
     return (
         <div className="choice-container">
             <div className={"img " + props.imgClass}></div>
-            <div className="text">{`Link with your ${props.accountName} account`}</div>
+            <Link className="text" to={"/moreinfo"}>{`Link with your ${props.accountName} account`}</Link>
         </div>
     )
 }

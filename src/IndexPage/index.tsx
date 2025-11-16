@@ -1,7 +1,7 @@
 // import React from 'react';
 import "./index.css"
-import ImageDescBox from "../Image_desc_box";
-import Testimonials from "../Testimonials";
+import ImageDescBox from "../Image_desc_box/index.tsx";
+import Testimonials from "../Testimonials/index.tsx";
 import { Link } from "react-router-dom";
 
 function IndexPage() {

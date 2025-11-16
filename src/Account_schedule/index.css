@@ -1,0 +1,88 @@
+.outer-wraper {
+    align-self: center;
+    width : 80vw;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 5px;
+    
+    -webkit-box-shadow: 0px 5px 10px 3px rgba(0,0,0,0.5); 
+    box-shadow: 0px 5px 10px 3px rgba(0,0,0,0.5);
+}
+
+.button-wraper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.button-wraper .wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+    margin : 15px;
+    border-radius: 5px;
+}
+
+.import-btn {
+    background-color: var(--color-main-light);
+}
+
+.avail-btn {
+    background-color: #F0F0F0;
+}
+
+/* Calendar styling */
+
+/* Soft grid lines */
+.fc-theme-standard td, 
+.fc-theme-standard th {
+  border-color: #e5e5e5;
+}
+
+/* Header styling */
+.fc-col-header-cell {
+  padding: 8px 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Time column */
+.fc-timegrid-slot-label {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Rounded event boxes */
+.fc-event {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  padding: 4px 6px !important;
+  border-left: 5px solid black;
+}
+
+/* Custom event inner layout */
+.fc-custom-event {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fc-event-title {
+  font-weight: 600;
+  font-size: 13px;
+  white-space: pre-line;
+  color: var(--color-main-dark);
+}
+
+.fc-event-desc {
+  font-size: 12px;
+  white-space: pre-line;
+  color: var(--color-main-dark);
+}

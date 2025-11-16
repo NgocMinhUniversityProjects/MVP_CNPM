@@ -2,16 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import {Header, Footer} from "./HeaderAndFooter"
+import {Header, Footer} from "./HeaderAndFooter/index.tsx"
 
-import IndexPage from './IndexPage';
-import AboutPage from './About';
-import SignupPage from './Signup';
-import LoginPage from "./Login"
-import AccountPage from './Account';
-import AskingInfoPage from './AskingInfo';
+import IndexPage from './IndexPage/index.tsx';
+import AboutPage from './About/index.tsx';
+
+import SignupPage from './Signup/index.tsx';
+import AskingInfoPage from './AskingInfo/index.tsx';
+
+import LoginPage from "./Login/index.tsx"
+
+import AccountMain from './Account_main/index.tsx';
+import AccountCalendar from './Account_schedule/index.tsx';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AccountBook from './Account_book/index.tsx';
+import AccountSession from './Account_session/index.tsx';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -59,7 +65,11 @@ root.render(
         <Route path="/login"      element={__wrap__(<LoginPage />, "login")} />
         <Route path="/signup"     element={__wrap__(<SignupPage />, "signup")} />
         <Route path="/moreinfo"   element={__wrap__(<AskingInfoPage />, "signup")} /> 
-        <Route path="/account"    element={<AccountPage />} />
+
+        <Route path="/account_main"        element={<AccountMain />} />
+        <Route path="/account_calendar"    element={<AccountCalendar />} />
+        <Route path="/account_book"        element={<AccountBook />} />
+        <Route path="/account_session"        element={<AccountSession />} />
       </Routes>
     </Router>
 );

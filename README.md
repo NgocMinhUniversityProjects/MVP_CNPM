@@ -4,7 +4,7 @@ Tutor website created as an MVP for the Software engineering course.
 
 ## How to run
 
-A buid shall be included in the finished version.
+A buid is inncluded but you can additionally run via.
 
 For now, run:
 ```
@@ -15,12 +15,22 @@ And connect to the hosted URl using your browser of choice.
 
 ## Contents
 
-4 pages shall be included in this MVP:
+### Completed
++ Login / Signup page
++ Main page
++ Dashboard
++ Schedule management
++ Book a session
++ View my sessions
 
-+ Login / Signup page (Complete)
-+ Main page (Complete)
-+ Calendar edit page / Account page
-+ Meeting page
+### Incomplete
++ Messeges
++ Document library
++ Forum
++ Feedback
++ Meeting
++ Attendance
++ Account setting
 
-All data included have not been linked with a database but will be in the finished version.
+All data included is hard coded.
 
