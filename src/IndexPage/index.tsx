@@ -77,7 +77,7 @@ function IndexPage() {
         </div>
 
         <div className="call-to-action">
-          <Link to="/signup?role=student"> Get started! </Link>
+          <Link className="call-to-action-text" to="/signup?role=student"> Get started! </Link>
         </div>
 
       </div>

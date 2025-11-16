@@ -13,7 +13,7 @@ interface HeaderProps {
 function parseOption(o : option){
     if(Array.isArray(o)){
         const [option, href] = o
-        return <Link className="option" to={href}>{option}</Link>
+        return <Link className="option text" to={href}>{option}</Link>
     } else {
         return <div className="option">{o}</div>
     }

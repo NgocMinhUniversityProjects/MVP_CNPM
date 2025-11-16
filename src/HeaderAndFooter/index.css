@@ -97,7 +97,12 @@
 .Footer .right .option {
     width : fit-content;    
     height: 5vh;
-
 }
+
+.text {
+    text-decoration: none;
+    color : inherit;
+}
+
 
 

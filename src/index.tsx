@@ -66,10 +66,11 @@ root.render(
         <Route path="/signup"     element={__wrap__(<SignupPage />, "signup")} />
         <Route path="/moreinfo"   element={__wrap__(<AskingInfoPage />, "signup")} /> 
 
+        <Route path="/account"             element={<AccountMain />} />
         <Route path="/account_main"        element={<AccountMain />} />
         <Route path="/account_calendar"    element={<AccountCalendar />} />
         <Route path="/account_book"        element={<AccountBook />} />
-        <Route path="/account_session"        element={<AccountSession />} />
+        <Route path="/account_session"     element={<AccountSession />} />
       </Routes>
     </Router>
 );

@@ -233,6 +233,14 @@
   padding: 15px;
   padding-top: 25px;
 
+  background-color: var(--color-main-dark);
+
+  border-radius: 25px;
+}
+
+.IndexPage .Features .call-to-action-text {
+  width : 100%;
+
   font-size: 30px;
   text-decoration: none;
   font-style: none;
@@ -241,9 +249,9 @@
 
   text-align: center;
 
-  background-color: var(--color-main-dark);
-
-  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .IndexPage .Testimonials {
