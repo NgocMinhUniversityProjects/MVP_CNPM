@@ -1,5 +1,7 @@
 .Ac-sidebar {
     width : 20vw;
+    max-width: 20vw;
+    min-width: 20vw;
     height : 100vh;
 
     display: flex;
@@ -51,3 +53,14 @@
 .highlighted {
     background-color: var(--color-main-dark);
 }
+
+.log-out {
+    border-top : 1px solid var(--color-sub-white);
+    align-self: center;
+    justify-content: center;
+}
+
+.log-out .icon {
+    margin-right: 10px;
+}
+

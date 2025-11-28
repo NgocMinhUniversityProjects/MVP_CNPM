@@ -14,10 +14,17 @@ import LoginPage from "./Login/index.tsx"
 
 import AccountMain from './Account_main/index.tsx';
 import AccountCalendar from './Account_schedule/index.tsx';
-
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import AccountBook from './Account_book/index.tsx';
 import AccountSession from './Account_session/index.tsx';
+import AccountChat from './Account_chat/index.tsx';
+import AccountDoc from './Account_doc/index.tsx';
+import AccountForum from './Account_forum/index.tsx';
+import AccountFeedback from './Account_feedback/index.tsx';
+import AccountSetting from './Account_setting/index.tsx';
+
+import MeetingRoom from './Meeting/index.tsx';
+
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -71,6 +78,15 @@ root.render(
         <Route path="/account_calendar"    element={<AccountCalendar />} />
         <Route path="/account_book"        element={<AccountBook />} />
         <Route path="/account_session"     element={<AccountSession />} />
+        <Route path="/account_chat"        element={<AccountChat />} />
+        <Route path="/account_mes"         element={<AccountChat />} />
+        <Route path="/account_doc"         element={<AccountDoc />} />
+        <Route path="/account_forum"       element={<AccountForum />} />
+        <Route path="/account_comunity"    element={<AccountForum />} />
+        <Route path="/account_feedback"    element={<AccountFeedback />} />
+        <Route path="/account_ac"          element={<AccountSetting />} />
+
+        <Route path="/meeting"            element={<MeetingRoom />} />
       </Routes>
     </Router>
 );

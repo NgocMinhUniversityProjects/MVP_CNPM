@@ -1,0 +1,73 @@
+.doc-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.doc-container .doc-card {
+  width: 30%;
+  background: white;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.doc-container .icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-pdf {
+  background-image: url("../../public/pdf_symbol.png");
+}
+
+.icon-docx {
+  background-image: url("../../public/word_symbol.png");
+}
+
+.icon-ppt {
+  background-image: url("../../public/ppt_symbol.png");
+}
+
+.doc-container .title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.doc-container .description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.doc-container .meta {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.doc-container .download-button {
+  background-color: #0c57ea;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  text-align: center;
+  width : 100%;
+}
+
+.doc-container .download-button:hover {
+  background-color: #084ac2;
+}

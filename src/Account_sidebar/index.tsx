@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
 import "./index.css"
 import { Link } from "react-router-dom"
+import { FiLogOut } from "react-icons/fi";
 
 type icon = ReactNode
 type name = string
@@ -30,6 +31,10 @@ export default function Account_sidebar(props : Account_sidebar_props){
         <div className="Ac-sidebar">
             <div className="title">{title}</div>
             {entries.map((e, i) => formatEntries(e, i, highlighted))}
+            <div className="entry-container log-out">
+                <FiLogOut className="icon"/>
+                <Link to={"/"} className="name">Log out</Link>
+            </div>
         </div>
     )
 }

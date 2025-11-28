@@ -9,6 +9,8 @@ import { PiVideoCameraFill } from "react-icons/pi";
 import { IoChatbubblesSharp } from "react-icons/io5";
 import { HiMiniUserGroup } from "react-icons/hi2";
 
+import { Link } from "react-router-dom";
+
 
 const entries = [
                 [<FaHouse/>, "Dashboard", "/account_main"],
@@ -32,12 +34,12 @@ export default function wrapper(component : ReactNode, index : number){
                         <div className="icon">{entries[index][0]}</div>
                         <div className="name">{entries[index][1]}</div>
                     </div>
-                    <div className="right section">
+                    <Link to={"/account_ac"} className="right section">
                         <div className="bell">
                             <FaBell />
                         </div>
                         <div className="avatar"></div>
-                    </div>
+                    </Link>
                 </div>
                 {component}
             </div>

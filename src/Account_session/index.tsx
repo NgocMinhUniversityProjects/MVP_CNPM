@@ -5,33 +5,35 @@ import "./index.css";
 import { BsPersonVcardFill } from "react-icons/bs";
 import { FaCalendarDay } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+const upcomingSessions = [
+  {
+    subject: "Calculus 1",
+    tutor: "Nguyen Van A",
+    date: "Thursday, Oct 30",
+    time: "10:00 - 11:00",
+    joinEnabled: true,
+    rescheduleEnabled: true,
+    cancelEnabled: true,
+  },
+  {
+    subject: "Physics",
+    tutor: "Tran Thi B",
+    date: "Today, in 15 minutes",
+    time: "16:30 - 17:30",
+    joinEnabled: true,
+    rescheduleEnabled: false,
+    cancelEnabled: false,
+    warning:
+      "This session starts too soon (< 30 mins) and cannot be cancelled or rescheduled.",
+  },
+];
+
+const pastSessions = [];
 
 function Sessions() {
-  const upcomingSessions = [
-    {
-      subject: "Calculus 1",
-      tutor: "Nguyen Van A",
-      date: "Thursday, Oct 30",
-      time: "10:00 - 11:00",
-      joinEnabled: true,
-      rescheduleEnabled: true,
-      cancelEnabled: true,
-    },
-    {
-      subject: "Physics",
-      tutor: "Tran Thi B",
-      date: "Today, in 15 minutes",
-      time: "16:30 - 17:30",
-      joinEnabled: true,
-      rescheduleEnabled: false,
-      cancelEnabled: false,
-      warning:
-        "This session starts too soon (< 30 mins) and cannot be cancelled or rescheduled.",
-    },
-  ];
-
-  const pastSessions = [];
-
+  const nav = useNavigate()
   return (
     <div className="sessions-container">
       <h2 className="section-title">Upcoming Sessions</h2>
@@ -55,7 +57,7 @@ function Sessions() {
           </div>
 
           <div className="session-actions">
-            <button className="btn join" disabled={!s.joinEnabled}>
+            <button onClick={() => nav("/meeting")} className="btn join" disabled={!s.joinEnabled}>
               Join Session
             </button>
             <button className="btn reschedule" disabled={!s.rescheduleEnabled}>

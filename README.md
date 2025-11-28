@@ -2,6 +2,10 @@
 
 Tutor website created as an MVP for the Software engineering course.
 
+## Access
+
+The website is hosted using github pages at [this link](https://ngocminhuniversityprojects.github.io/MVP_CNPM/build/)
+
 ## How to run
 
 A buid is inncluded but you can additionally run via.
@@ -22,15 +26,16 @@ And connect to the hosted URl using your browser of choice.
 + Schedule management
 + Book a session
 + View my sessions
-
-### Incomplete
++ Account setting
 + Messeges
 + Document library
 + Forum
 + Feedback
+  
+### Incomplete
 + Meeting
 + Attendance
-+ Account setting
+
 
 All data included is hard coded.
 

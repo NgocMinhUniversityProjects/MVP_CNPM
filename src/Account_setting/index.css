@@ -1,0 +1,139 @@
+.profile-container {
+  width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #d0d7e2;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 4px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+}
+
+.tab-btn.active {
+  border-bottom: 3px solid #2563eb;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+/* Avatar */
+.photo-section {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-container .avatar {
+  width: 120px;
+  height: 120px;
+  background: #e6eaf2;
+  border-radius: 50%;
+  margin: auto;
+
+  background-image: url("../../public/avatar.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.change-photo-btn {
+  margin-top: 10px;
+  background: #ffcc00;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.input-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fff;
+}
+
+.input-box.readonly {
+  background: #f3f4f6;
+  color: #666;
+}
+
+.divider {
+  border: none;
+  border-bottom: 1px solid #d0d7e2;
+  margin: 25px 0;
+}
+
+.save-btn {
+  background: #2563eb;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.security-tab {
+  padding: 20px;
+  font-size: 18px;
+}
+/* Example CSS */
+.profile-container {
+  font-family: Arial, sans-serif;
+}
+
+.field-label {
+  font-size: 14px;
+}
+
+.divider {
+  margin: 20px 0;
+}
+
+.section-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.field-label {
+  font-size: 14px;
+}
+
+.input-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

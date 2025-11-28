@@ -1,6 +1,6 @@
 .outer-wraper {
     align-self: center;
-    width : 80vw;
+    width : 75vw;
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -35,6 +35,14 @@
 
 .avail-btn {
     background-color: #F0F0F0;
+}
+
+.clear-btn {
+  background-color: var(--color-main-light);
+}
+
+.button-wraper .active {
+  background-color: var(--color-sub-green);
 }
 
 /* Calendar styling */

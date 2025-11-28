@@ -1,0 +1,80 @@
+.meeting-room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meeting-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  background-color: #282c34;
+  color: white;
+}
+
+.leave-btn {
+  background-color: red;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.meeting-room .sidebar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+
+.participants {
+  width: 30%;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.meeting-room .chat-section {
+  width: 30%;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.video-grid {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.video-tile {
+  background-color: #333;
+  color: white;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.meeting-room button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.meeting-room button:hover {
+  background-color: #0056b3;
+}

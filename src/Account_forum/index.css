@@ -1,0 +1,143 @@
+.forum-container {
+  width: 600px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.create-post-box {
+  background: #f5f7fa;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.title-input,
+.content-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.content-input {
+  height: 80px;
+  resize: none;
+}
+
+.post-button {
+  background: #2d77ff;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.recent-posts-title {
+  margin-bottom: 12px;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: scroll;
+  max-height: 50vh; 
+}
+
+/* .posts-list::-webkit-scrollbar {
+    width: 6px;
+} */
+
+.posts-list::-webkit-scrollbar-button {
+    background: #c9c9c9;
+    border-radius: 4px;
+}
+
+.post-card {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.post-card.reported {
+  border: 2px solid #f7b7b7;
+  background: #fff4f4;
+}
+
+.post-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #d9e1f2;
+
+  background-image: url("../../public/avatar.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.author {
+  font-weight: 600;
+}
+
+.role-time {
+  color: #666;
+  font-size: 13px;
+}
+
+.post-title {
+  font-size: 16px;
+  color: #2563eb;
+  margin: 8px 0;
+}
+
+.post-content {
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.comment-btn {
+  background: #ffd950;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.reported-admin-box {
+  display: flex;
+  gap: 8px;
+}
+
+.approve-btn {
+  background: #3cb371;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.remove-btn {
+  background: #e63946;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.ban-btn {
+  background: #ffb100;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+}
