@@ -1,42 +1,75 @@
 .forum-container {
-  width: 600px;
+  width: 700px;
   margin: auto;
-  font-family: sans-serif;
+  padding: 30px;
+  font-family: 'Epilogue', sans-serif;
 }
 
 .create-post-box {
-  background: #f5f7fa;
-  padding: 16px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(245, 247, 250, 0.95), rgba(240, 242, 245, 0.9));
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  border: 2px solid rgba(20, 136, 219, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .title-input,
 .content-input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  font-size: 14px;
+  padding: 14px 16px;
+  border: 2px solid rgba(3, 43, 145, 0.15);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-family: 'Epilogue', sans-serif;
+  background: white;
+  transition: var(--transition-fast);
+}
+
+.title-input:focus,
+.content-input:focus {
+  outline: none;
+  border-color: var(--color-main-light);
+  box-shadow: 0 0 0 3px rgba(20, 136, 219, 0.1);
 }
 
 .content-input {
-  height: 80px;
+  height: 90px;
   resize: none;
 }
 
 .post-button {
-  background: #2d77ff;
+  background: linear-gradient(135deg, var(--color-main-light), var(--color-main-medium));
   color: white;
-  padding: 8px 18px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+}
+
+.post-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.post-button:active {
+  transform: translateY(0);
 }
 
 .recent-posts-title {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .posts-list {
@@ -57,15 +90,25 @@
 }
 
 .post-card {
-  background: white;
-  padding: 16px;
-  border-radius: 10px;
-  border: 1px solid #eee;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 14px;
+  border: 2px solid rgba(20, 136, 219, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-main-light);
 }
 
 .post-card.reported {
-  border: 2px solid #f7b7b7;
-  background: #fff4f4;
+  border: 2px solid rgba(220, 53, 69, 0.3);
+  background: linear-gradient(135deg, rgba(255, 244, 244, 0.98), rgba(255, 240, 240, 0.9));
 }
 
 .post-header {
@@ -95,49 +138,88 @@
 }
 
 .post-title {
-  font-size: 16px;
-  color: #2563eb;
-  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-main-dark);
+  margin: 10px 0;
+  line-height: 1.4;
 }
 
 .post-content {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: #444;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .comment-btn {
-  background: #ffd950;
-  padding: 6px 10px;
-  border-radius: 6px;
+  background: linear-gradient(135deg, #ffd950, #ffcc00);
+  padding: 8px 16px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.comment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .reported-admin-box {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .approve-btn {
-  background: #3cb371;
+  background: linear-gradient(135deg, #3cb371, #2d9f5f);
   color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
   border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.approve-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .remove-btn {
-  background: #e63946;
+  background: linear-gradient(135deg, #e63946, #d32f3b);
   color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
   border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.remove-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .ban-btn {
-  background: #ffb100;
+  background: linear-gradient(135deg, #ffb100, #ff9f00);
   color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
   border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.ban-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }

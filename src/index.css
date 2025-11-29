@@ -1,6 +1,9 @@
 /*Import font Epilogue from google font*/
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Lexend:wght@100..900&display=swap');
 
+/*Import modern animations and effects*/
+@import url('./animations.css');
+
 body {
   margin: 0;
   font-family: "Epilogue", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,6 +14,10 @@ body {
 
   font-weight: normal;
   overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
 
   /* Variable section */
 
@@ -24,9 +31,21 @@ body {
   --color-sub-black : black;
   --color-sub-white : white;
   --color-sub-grey : #6d82a4be;
+  --color-glass-bg : rgba(255, 255, 255, 0.25);
+  --color-glass-border : rgba(255, 255, 255, 0.18);
 
   /* Spacing */
   --hoz-pad : 5vw;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --transition-fast: all 0.2s ease;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 

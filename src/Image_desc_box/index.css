@@ -1,12 +1,36 @@
 .Image-desc-box {
-    width : calc(70 * 90vh / 100);
-    height: 90vh;
+    width : calc(60 * 90vh / 100);
+    height: 75vh;
 
-    border : 1px solid orange;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(20, 136, 219, 0.15);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
 
     padding-bottom: 4.5vh;
 
     font-size: 28px;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.Image-desc-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-main-dark), var(--color-main-light));
+}
+
+.Image-desc-box:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-main-light);
 }
 
 .Image-desc-box .img {
@@ -14,17 +38,57 @@
     background-color: var(--color-sub-white);
     background-size: cover;
     background-position: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid rgba(20, 136, 219, 0.2);
+}
+
+.Image-desc-box .img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4));
+}
+
+.Image-desc-box .img::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    transform: rotate(45deg);
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.Image-desc-box:hover .img::before {
+    animation-duration: 1.5s;
 }
 
 .Image-desc-box .title {
-    font-size: 25px;
+    font-size: 26px;
     height: 10%;
-    font-weight: bold;
-    padding-left: 5px;
+    font-weight: 800;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 15px;
+    background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .Image-desc-box .desc {
-    padding-left: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     height: 20%;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
 }

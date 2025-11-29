@@ -1,51 +1,181 @@
 .container {
     display: flex;
-    padding: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf4 100%);
+    min-height: 90vh;
 }
 
 .filterPanel {
-    width: 220px;
-    margin-right: 40px;
-    padding-top: 20px;
+    width: 240px;
+    margin-right: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
 }
 
 .input {
     width: 100%;
-    padding: 8px;
-    margin: 6px 0 18px;
-    border-radius: 6px;
-    border: 1px solid var(--color-sub-grey);
+    padding: 12px 14px;
+    margin: 8px 0 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(3, 43, 145, 0.15);
+    background: white;
+    transition: var(--transition-fast);
+    font-size: 14px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-main-light);
+    box-shadow: 0 0 0 3px rgba(20, 136, 219, 0.1);
 }
 
 .listPanel {
     flex-grow: 1;
 }
 
+.listPanel h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.filterPanel h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-main-dark);
+}
+
+.filterPanel label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+    font-size: 14px;
+}
+
 .card {
     display: flex;
     align-items: center;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 24px;
+    border-radius: 16px;
     margin-bottom: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(20, 136, 219, 0.1);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, var(--color-main-dark), var(--color-main-light));
+}
+
+.card:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-main-light);
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: #F0F0F0;
-    margin-right: 20px;
+    margin-right: 24px;
+    border: 3px solid rgba(20, 136, 219, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     background-image: url("../../public/avatar.png");
     background-size: cover;
     background-position: center;
+    transition: var(--transition-fast);
+}
+
+.card:hover .avatar {
+    transform: scale(1.05);
+    border-color: var(--color-main-light);
 }
 
 .call-to-action {
-    padding: 10px 18px;
-    background-color: var(--color-main-light);
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--color-main-light), var(--color-main-medium));
     color: var(--color-sub-white);
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
     cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.call-to-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.call-to-action:hover::before {
+    left: 100%;
+}
+
+.call-to-action:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.call-to-action:active {
+    transform: translateY(0);
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.type-badge.group {
+    background: #d1f2d2;
+}
+
+.type-badge.individual {
+    background: #e5d8ff;
+}
+
+.card-details {
+    margin-top: 8px;
 }

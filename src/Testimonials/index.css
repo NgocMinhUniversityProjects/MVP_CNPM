@@ -9,18 +9,46 @@
     align-items: center;
 
     border-radius: 25px;
-    border : 5px solid var(--color-main-light)
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(20, 136, 219, 0.2);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.user-testimonial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-main-dark), var(--color-main-light));
+}
+
+.user-testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-main-light);
 }
 
 .user-testimonial .comment {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 19px;
+    line-height: 1.6;
+    font-weight: 600;
     font-style: italic;
-    color : var(--color-sub-grey);
+    background: linear-gradient(135deg, var(--color-main-dark), var(--color-sub-grey));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 
     text-align: center;
 
     margin-top : 10vh;
+    padding: 0 24px;
 }
 
 .user-testimonial .info {

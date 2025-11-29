@@ -9,13 +9,19 @@
 }
 
 .about .title {
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 48px;
+    font-weight: 800;
 
     height: fit-content;
     width : 100%;
 
     margin : 15px;
+    margin-top: 60px;
+    background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
 }
 
 .about .content {
@@ -34,13 +40,28 @@
 }
 
 .about .content .text-container {
-    font-size: 20px;
+    font-size: 17px;
+    line-height: 1.7;
 
     width : 55%;
 }
 
 .about .content .text {
+    margin-bottom: 18px;
+    color: #444;
+    font-weight: 400;
+}
+
+.about .content .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 30px;
     margin-bottom: 15px;
+    color: var(--color-main-dark);
+    background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .about .content .img {

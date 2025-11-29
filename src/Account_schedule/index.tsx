@@ -133,8 +133,9 @@ export default function Account_calendar() {
             <input
               type="file"
               accept=".ics"
-              style={{ display: "none" }}
+              className="file-input-hidden"
               onChange={handleImportSchedule}
+              aria-label="Import schedule from ICS file"
             />
           </label>
         </div>

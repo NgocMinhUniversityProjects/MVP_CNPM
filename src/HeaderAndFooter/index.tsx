@@ -1,8 +1,8 @@
 import "./index.css"
 import { Link } from "react-router-dom"
-import React from "react"
+import React, { ReactNode } from "react"
 type HREF = string
-type option = string | [string, HREF]
+type option = string | ReactNode | [string | ReactNode, HREF]
 
 
 interface HeaderProps {
@@ -10,18 +10,18 @@ interface HeaderProps {
     options_left : option[],
 }
 
-function parseOption(o : option){
+function parseOption(o : option, index: number){
     if(Array.isArray(o)){
         const [option, href] = o
-        return <Link className="option text" to={href}>{option}</Link>
+        return <Link key={index} className="option text" to={href}>{option}</Link>
     } else {
-        return <div className="option">{o}</div>
+        return <div key={index} className="option">{o}</div>
     }
 }
 
 export function Header(config : HeaderProps){
-    const o_left = config.options_left.map(o => parseOption(o))
-    const o_right = config.options_right.map(o => parseOption(o))
+    const o_left = config.options_left.map((o, i) => parseOption(o, i))
+    const o_right = config.options_right.map((o, i) => parseOption(o, i))
     
     return (
         <div className = "Header">
@@ -37,8 +37,8 @@ export function Header(config : HeaderProps){
 }
 
 export function Footer(config : HeaderProps){
-    const o_left = config.options_left.map(o => parseOption(o))
-    const o_right = config.options_right.map(o => parseOption(o))
+    const o_left = config.options_left.map((o, i) => parseOption(o, i))
+    const o_right = config.options_right.map((o, i) => parseOption(o, i))
     
     return (
         <div className = "Footer">

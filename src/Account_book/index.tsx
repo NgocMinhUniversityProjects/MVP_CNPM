@@ -49,34 +49,40 @@ function Tutor() {
         <div className="filterPanel">
             <h4>Filter Tutors</h4>
 
-            <label>By Subject</label>
+            <label htmlFor="subjectFilter">By Subject</label>
             <select
+                id="subjectFilter"
                 className="input"
                 value={subjectFilter}
                 onChange={(e) => setSubjectFilter(e.target.value)}
+                aria-label="Filter by subject"
             >
                 <option>All</option>
                 <option>Calculus 1</option>
                 <option>Database</option>
             </select>
 
-            <label>By Tutor</label>
+            <label htmlFor="tutorFilter">By Tutor</label>
             <select
+                id="tutorFilter"
                 className="input"
                 value={tutorFilter}
                 onChange={(e) => setTutorFilter(e.target.value)}
+                aria-label="Filter by tutor"
             >
                 <option>All</option>
                 <option>Nguyen Van A</option>
                 <option>Tran Thi B</option>
             </select>
 
-            <label>By Date</label>
+            <label htmlFor="dateFilter">By Date</label>
             <input
+                id="dateFilter"
                 className="input"
                 type="date"
                 value={dateFilter}
                 onChange={(e) => setDateFilter(e.target.value)}
+                aria-label="Filter by date"
             />
         </div>
 
@@ -88,22 +94,13 @@ function Tutor() {
           <div key={t.id} className="card">
             <div className="avatar" />
 
-            <div style={{ flexGrow: 1 }}>
+            <div className="card-content">
               <strong>{t.name}</strong>
-              <div
-                style={{
-                  background: t.type === "Group" ? "#d1f2d2" : "#e5d8ff",
-                  display: "inline-block",
-                  padding: "2px 8px",
-                  borderRadius: 6,
-                  fontSize: 12,
-                  marginLeft: 8,
-                }}
-              >
+              <div className={`type-badge ${t.type.toLowerCase()}`}>
                 {t.type}
               </div>
 
-              <div style={{ marginTop: 8 }}>
+              <div className="card-details">
                 <p><FaBook        /><b>Subject:</b> {t.subject}</p>
                 <p><FaCalendarDay /><b>Date:</b> {t.dateLabel}</p>
                 <p><FaClock       /><b>Time:</b> {t.time}</p>

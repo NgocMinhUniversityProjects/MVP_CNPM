@@ -3,6 +3,51 @@ import "./index.css"
 import ImageDescBox from "../Image_desc_box/index.tsx";
 import Testimonials from "../Testimonials/index.tsx";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+const carouselImages = [
+  "/banner1.png",
+  "/banner2.png",
+  "/banner3.png"
+];
+
+function ImageCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const getSlideStyle = (img: string) => ({
+    backgroundImage: `url(${img})`
+  });
+
+  return (
+    <div className="Image-galery">
+      <div className="carousel-container">
+        {carouselImages.map((img, index) => (
+          <div
+            key={index}
+            className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+            style={getSlideStyle(img)}
+          />
+        ))}
+        <div className="carousel-dots">
+          {carouselImages.map((_, index) => (
+            <div
+              key={index}
+              className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function IndexPage() {
   return (
@@ -11,13 +56,12 @@ function IndexPage() {
       {/* What we are */}
       <div className="Opening-box">
         <div className="Title bold">
-          One stop place for connecting with and finding mentorship!
+          Your Complete Platform for Academic Excellence and Mentorship
         </div>
         <div className="Content">
-          We offer an easy solution to connect tutors and students across various schools, 
-          including partners and users from HCMUT, USSH, UIT, etc. 
-          Whether you are a tutor or a student, we offer tools to connect, 
-          teach and learn with one all-in-one account.
+          Connect with expert tutors and passionate students across leading universities 
+          including HCMUT, USSH, and UIT. Our comprehensive platform provides all the tools 
+          you need to teach, learn, and grow—seamlessly integrated in one unified experience.
         </div>
       </div>
 
@@ -28,24 +72,24 @@ function IndexPage() {
       <div className="Desc-box">
         <ImageDescBox 
           imgClass="side1"
-          title="From the need of students"
-          desc="Made by students, for students. We made it easy to find tutors for your favorite subjects!"
+          title="Built for Students"
+          desc="Created by students who understand your needs. Discover qualified tutors for any subject with just a few clicks."
         />
         <ImageDescBox 
           imgClass="side2"
-          title="To the need of tutors"
-          desc="We care about the tutors on our site, providing useful tools and just-in-time supports if there are any troubles."
+          title="Empowering Tutors"
+          desc="Comprehensive tools and dedicated support to help you succeed. Schedule sessions, share resources, and track your impact effortlessly."
         />
         <ImageDescBox 
           imgClass="side3"
-          title="Officially supported by schools"
-          desc="We have official supports from schools such as HCMUT or USSH. Many of our tutors are from trusted schools."
+          title="University Endorsed"
+          desc="Officially partnered with prestigious institutions including HCMUT and USSH. All tutors are verified members of trusted academic communities."
         />
       </div>
 
       {/* Our partners */}
       <div className="Partners">
-        <div className="text"> Our partners </div>
+        <div className="text">Trusted by Leading Universities</div>
         <div className="image-slide-show">
           <div className="img img1"></div>
           <div className="img img2"></div>
@@ -62,34 +106,34 @@ function IndexPage() {
       {/* App's features */}
       <div className="Features">
 
-        <div className="title">For students:</div>
+        <div className="title">Designed for Student Success</div>
 
         <div className="item-display">
           <div className="item item1">
             <div className="img"></div>
-            <div className="text">Find tutors for your favourite subjects</div>
+            <div className="text">Connect with Expert Tutors Across All Subjects</div>
           </div>
 
           <div className="item item2">
             <div className="img"></div>
-            <div className="text">Study online or offline with scheduled time</div>
+            <div className="text">Flexible Learning: Online or In-Person Sessions</div>
           </div>
         </div>
 
         <div className="call-to-action">
-          <Link className="call-to-action-text" to="/signup?role=student"> Get started! </Link>
+          <Link className="call-to-action-text" to="/signup?role=student">Start Your Journey</Link>
         </div>
 
       </div>
 
       {/* Testimonials */}
       <div className="Testimonials">
-        <div className="title">Read some testimonials from our users</div>
+        <div className="title">What Our Community Says</div>
         <div className="user-container">
 
-          <Testimonials userName="Minh" comment="Fantastic user experience." info="Freshman at HCMUT" />
-          <Testimonials userName="Linh" comment="Excellent user experience, I only need one account for both for studying and for teaching" info="4rd year student at USSH"/>
-          <Testimonials userName="Thảo" comment="Great site, saved me before the finals" info="2rd year student at UIT"/>
+          <Testimonials userName="Minh" comment="Outstanding platform with an intuitive, user-friendly interface." info="Freshman, HCMUT" />
+          <Testimonials userName="Linh" comment="Perfect solution! One account handles both my tutoring sessions and my own studies seamlessly." info="4th Year Student, USSH"/>
+          <Testimonials userName="Thảo" comment="This platform was a lifesaver during finals week. Highly recommended!" info="2nd Year Student, UIT"/>
 
         </div>
       </div>

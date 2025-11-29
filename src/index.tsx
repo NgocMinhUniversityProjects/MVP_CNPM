@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import {Header, Footer} from "./HeaderAndFooter/index.tsx"
 
@@ -40,23 +41,31 @@ function __wrap__(children : React.ReactNode, type : string){
     <React.StrictMode>
       <div className='invi' onLoad={loadInit}></div>
       <Header 
-        options_left={["BKU tutor site"]} 
+        options_left={[
+          [<><img src="/PN1.png" alt="Logo" className="header-logo" /> HCMUT Tutor Platform</>, "/"]
+        ]} 
         options_right={[
-          "English", 
-          type !== "signup" ? ["Make an account", "/signup"] : ["Login instead", "/login"], 
-          type !== "main" ? ["Go back to main page", "/main"] : ["Login instead", "/login"],
-          type === "about" ? ["Back to main page", "/"] : ["About us", "/about"]
+          ["Home", "/"],
+          type !== "signup" ? ["Sign Up", "/signup"] : ["Sign In", "/login"], 
+          type !== "main" ? ["Home", "/main"] : ["Sign In", "/login"],
+          type === "about" ? ["Home", "/"] : ["About", "/about"]
         ]}
       />
 
       {children}
 
       <Footer 
-        options_left={["Contact us:", "Email", "Facebook", "Github", "Linkin"]}
+        options_left={[
+          "Contact us:", 
+          [<><FaEnvelope /> Email</>, "mailto:contact@bkututor.edu.vn"], 
+          [<><FaFacebook /> Facebook</>, "https://facebook.com"], 
+          [<><FaGithub /> Github</>, "https://github.com/NgocMinhUniversityProjects/MVP_CNPM"], 
+          [<><FaLinkedin /> LinkedIn</>, "https://linkedin.com"]
+        ]}
         options_right={[
-          type === "about" ? ["Back to main page", "/"] : ["About us", "/about"],
-          type !== "signup" ? ["Make an account", "/signup"] : ["Login instead", "/login"], 
-          "MVP code link"
+          type === "about" ? ["Home", "/"] : ["About", "/about"],
+          type !== "signup" ? ["Sign Up", "/signup"] : ["Sign In", "/login"], 
+          ["View Source Code", "https://github.com/NgocMinhUniversityProjects/MVP_CNPM"]
         ]}
       />
     </React.StrictMode>

@@ -16,38 +16,82 @@
   justify-content : left;
   flex-direction: column;
 
-  width : 75vw;
+  width : 65vw;
+  max-width: 900px;
   height : calc(30vh + 20px);
 
   margin-left: var(--hoz-pad);
-  margin-right: calc(100vw - 75vw - var(--hoz-pad));
+  margin-right: calc(100vw - 65vw - var(--hoz-pad));
   margin-top: 10vh;
   margin-bottom: 5vh;
 }
 
 .IndexPage .Opening-box .Title {
-  font-size: 64px;
-  margin-bottom: 20px;
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 28px;
+  background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light), var(--color-main-medium));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  letter-spacing: -0.5px;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .IndexPage .Opening-box .Content {
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #555;
+  font-weight: 400;
+  letter-spacing: 0.2px;
 }
 
 .IndexPage .Image-galery {
-  width : calc(100vw - var(--hoz-pad) * 2);
-  height : 110vh;
+  width : 85vw;
+  max-width: 1600px;
+  height : 70vh;
 
-  margin-top : 5vh;
-  margin-bottom: 5vh;
+  margin-top : 12vh;
+  margin-bottom: 10vh;
+  margin-left: auto;
+  margin-right: auto;
 
   background-color: var(--color-sub-white);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  background-position: 200%;
+  border-radius: 24px;
+  border: 3px solid rgba(20, 136, 219, 0.2);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  position: relative;
+  
+  transition: var(--transition-smooth);
+  animation: cycleimages 8s ease-in-out 0s infinite alternate-reverse both;
+}
 
+.IndexPage .Image-galery:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 60px rgba(20, 136, 219, 0.25);
+  border-color: var(--color-main-light);
+}
 
-  animation: cycleimages 5s ease-in-out 0s infinite alternate-reverse both;
+.IndexPage .Image-galery::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(20, 136, 219, 0.1), transparent 50%);
+  pointer-events: none;
 }
 
 @keyframes cycleimages {
@@ -70,11 +114,13 @@
   display: flex;
   flex-direction: row;
 
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 30px;
 }
 
 .IndexPage .Partners {
-  margin-top: 5vh;
+  margin-top: 10vh;
+  padding-top: 5vh;
   margin-bottom: 5vh;
   width : calc(100vw - var(--hoz-pad) * 2);
   height : 60vh;
@@ -84,9 +130,14 @@
 }
 
 .IndexPage .Partners .text {
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 38px;
+  font-weight: 800;
   margin-bottom: 5vh;
+  background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
 }
 
 /* no slide show yet, animation later */
@@ -102,19 +153,26 @@
 }
 
 .IndexPage .Partners .image-slide-show .img {
-  height : calc(60vh - 35px - 10vh - 15px);
+  height : calc((60vh - 35px - 10vh - 15px) * 0.6);
   width : auto;
-  min-width: calc(60vh - 35px - 10vh - 15px);
-  /* aspect-ratio: 1; */
+  min-width: calc((60vh - 35px - 10vh - 15px) * 0.6);
 
-  flex-shrink: 0; /* Prevent items from shrinking */
+  flex-shrink: 0;
 
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
 
-  background-color: var(--color-sub-white);
+  background-color: transparent;
 
-  margin-right: 8vw;
+  margin-right: 6vw;
+  filter: grayscale(0.3);
+  transition: var(--transition-smooth);
+}
+
+.IndexPage .Partners .image-slide-show .img:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
 }
 
 .IndexPage .Partners .image-slide-show .img1 {
@@ -151,15 +209,19 @@
   padding-left: calc(var(--hoz-pad) * 2);
   padding-right: calc(var(--hoz-pad) * 2);
 
-  background-color: var(--color-main-light);
+  background: transparent;
 }
 
 .IndexPage .Features .title {
-  color : var(--color-sub-white);
-  font-size: 35px;
-  font-weight: bold;
+  background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 42px;
+  font-weight: 800;
   margin-bottom: 5vh;
   margin-top: 15px;
+  letter-spacing: -0.5px;
 }
 
 .IndexPage .Features .item-display {
@@ -184,7 +246,32 @@
   width : 20vw;
 
   border-radius: 25px;
-  background-color: var(--color-main-dark);
+  background: linear-gradient(135deg, var(--color-main-dark) 0%, #041f5c 100%);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.IndexPage .Features .item::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.IndexPage .Features .item:hover::before {
+  opacity: 1;
+}
+
+.IndexPage .Features .item:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: var(--shadow-xl);
 }
 
 .IndexPage .Features .item .img {
@@ -202,8 +289,9 @@
   background-color: var(--color-sub-white);
   border : 5px solid var(--color-main-dark);
 
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
 
   color : var(--color-main-dark);
   border-radius: 25px;
@@ -215,6 +303,7 @@
 
   height: 40%;
   width : 18vw;
+  padding: 12px;
 }
 
 .IndexPage .Features .item1 .img {
@@ -233,19 +322,30 @@
   padding: 15px;
   padding-top: 25px;
 
-  background-color: var(--color-main-dark);
+  background: linear-gradient(135deg, var(--color-main-dark) 0%, var(--color-main-medium) 50%, var(--color-main-light) 100%);
+  background-size: 200% 200%;
 
   border-radius: 25px;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  animation: gradientShift 3s ease infinite;
+}
+
+.IndexPage .Features .call-to-action:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
 }
 
 .IndexPage .Features .call-to-action-text {
   width : 100%;
 
-  font-size: 30px;
+  font-size: 24px;
   text-decoration: none;
   font-style: none;
-  font-weight: bold;
+  font-weight: 700;
   color : white;
+  letter-spacing: 0.5px;
 
   text-align: center;
 
@@ -267,13 +367,18 @@
 }
 
 .IndexPage .Testimonials .title {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 38px;
+  font-weight: 800;
 
   align-self: left;
 
   margin-top: 5vh;
   margin-bottom: 5vh;
+  background: linear-gradient(135deg, var(--color-main-dark), var(--color-main-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
 }
 
 .IndexPage .Testimonials .user-container {

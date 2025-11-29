@@ -44,8 +44,9 @@ function PersonalTab(
 
         <div className="form-grid">
           <div>
-            <label className="field-label">Full Name</label>
+            <label className="field-label" htmlFor="fullName">Full Name</label>
             <input
+              id="fullName"
               className="input-box"
               value={profile.fullName}
               onChange={(e) => handleChange("fullName", e.target.value)}
@@ -53,8 +54,9 @@ function PersonalTab(
           </div>
 
           <div>
-            <label className="field-label">Student ID / ID</label>
+            <label className="field-label" htmlFor="studentId">Student ID / ID</label>
             <input
+              id="studentId"
               className="input-box readonly"
               value={profile.studentId}
               readOnly
@@ -62,8 +64,9 @@ function PersonalTab(
           </div>
 
           <div>
-            <label className="field-label">Email</label>
+            <label className="field-label" htmlFor="email">Email</label>
             <input
+              id="email"
               className="input-box"
               value={profile.email}
               onChange={(e) => handleChange("email", e.target.value)}
@@ -71,8 +74,9 @@ function PersonalTab(
           </div>
 
           <div>
-            <label className="field-label">Phone Number</label>
+            <label className="field-label" htmlFor="phone">Phone Number</label>
             <input
+              id="phone"
               className="input-box"
               value={profile.phone}
               onChange={(e) => handleChange("phone", e.target.value)}
@@ -86,8 +90,9 @@ function PersonalTab(
 
         <div className="form-grid">
           <div>
-            <label className="field-label">Role</label>
+            <label className="field-label" htmlFor="role">Role</label>
             <input
+              id="role"
               className="input-box readonly"
               value={profile.role}
               readOnly
@@ -95,8 +100,9 @@ function PersonalTab(
           </div>
 
           <div>
-            <label className="field-label">Major</label>
+            <label className="field-label" htmlFor="major">Major</label>
             <input
+              id="major"
               className="input-box"
               value={profile.major}
               onChange={(e) => handleChange("major", e.target.value)}
@@ -123,8 +129,9 @@ function SecurityTab(
       {/* Change Password Section */}
       <div className="form-grid">
         <div>
-          <label className="field-label">Current Password</label>
+          <label className="field-label" htmlFor="currentPassword">Current Password</label>
           <input
+            id="currentPassword"
             className="input-box"
             type="password"
             value={profile.currentPassword}
@@ -133,8 +140,9 @@ function SecurityTab(
         </div>
 
         <div>
-          <label className="field-label">New Password</label>
+          <label className="field-label" htmlFor="newPassword">New Password</label>
           <input
+            id="newPassword"
             className="input-box"
             type="password"
             value={profile.newPassword}
@@ -143,8 +151,9 @@ function SecurityTab(
         </div>
 
         <div>
-          <label className="field-label">Confirm New Password</label>
+          <label className="field-label" htmlFor="confirmNewPassword">Confirm New Password</label>
           <input
+            id="confirmNewPassword"
             className="input-box"
             type="password"
             value={profile.confirmNewPassword}
@@ -158,24 +167,28 @@ function SecurityTab(
       {/* Two-Factor Authentication Section */}
       <h4 className="section-title">2-Factor Authentication (2FA)</h4>
       <div>
-        <label className="field-label">
+        <label className="field-label" htmlFor="enable2FA">
           Enable 2FA
         </label>
         <input
+          id="enable2FA"
           type="checkbox"
           checked={profile.twoFactorEnabled}
           onChange={(e) => handleChange("twoFactorEnabled", e.target.checked)}
+          aria-label="Enable two-factor authentication"
         />
       </div>
 
       {profile.twoFactorEnabled && (
         <div className="form-grid">
           <div>
-            <label className="field-label">Choose your 2FA method</label>
+            <label className="field-label" htmlFor="twoFactorMethod">Choose your 2FA method</label>
             <select
+              id="twoFactorMethod"
               className="input-box"
               value={profile.twoFactorMethod}
               onChange={(e) => handleChange("twoFactorMethod", e.target.value)}
+              aria-label="Select two-factor authentication method"
             >
               {profile.twoFactorMethods.map((method) => (
                 <option key={method.value} value={method.value}>
