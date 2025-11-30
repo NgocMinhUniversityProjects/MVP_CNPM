@@ -1,6 +1,7 @@
 import { FormEvent, ReactNode, useState } from "react"
 import "./index.css"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../context/AuthContext.tsx"
 
 interface InfoProps {
     savedInfoState? : savedGeneralInfoState;
@@ -103,10 +104,18 @@ function AskingInfo_2(step : onStepState, st : isStudentState){
     )
 }
 
-function AskingInfo_3(step : onStepState, st : isStudentState, savedGeneralInfo : ReactNode) {
+function AskingInfo_3(
+    step : onStepState, 
+    st : isStudentState, 
+    savedGeneralInfo : ReactNode,
+    profileInfoState : savedGeneralInfoState,
+    handleSignup : () => Promise<void>,
+    isLoading : boolean,
+    error : string
+) {
 
     const isStudent = st[0]
-    const infoArr = (isStudent ? studentInfo : tutorInfo).concat(generalInfo)
+    const infoArr = isStudent ? studentInfo : tutorInfo
 
     return (
         <div className="info info3">
@@ -115,10 +124,12 @@ function AskingInfo_3(step : onStepState, st : isStudentState, savedGeneralInfo 
                 <div className="subtitle">Add some more personal information to complete your sign-up!</div>
                 <div className="choice role" onClick={() => switchRole(st)}>Signing up as a {isStudent ? "student" : "tutor"} (click to change)</div>
                 {savedGeneralInfo ?? ""}
-                {infoArr.map((info, num) => <Field placeholder={info} elementID={num}/>)}
+                {infoArr.map((info, num) => <Field key={num} savedInfoState={profileInfoState} placeholder={info} elementID={num}/>)}
 
-                {/* placeholder to account, change later */}
-                <Link className="confirm-button" to="/account">Confirm</Link> 
+                {error && <div className="error-message">{error}</div>}
+                <div className={`confirm-button ${isLoading ? 'disabled' : ''}`} onClick={isLoading ? undefined : handleSignup}>
+                    {isLoading ? 'Creating Account...' : 'Confirm'}
+                </div> 
             </div>
         </div>
     )
@@ -128,13 +139,68 @@ export default function AskingInfo(){
     const stepState = useState<1 | 2 | 3 | undefined>(1)
     const isStudent = useState<boolean | undefined>(true)
     const savedGeneralInfoState = useState<string[] | undefined>([])
-    const savedGeneralInfo = generalInfo.map((info, num) => <Field savedInfoState={savedGeneralInfoState} placeholder={info} elementID={num}/>)
+    const profileInfoState = useState<string[] | undefined>([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState('')
+    const { signup } = useAuth()
+    const navigate = useNavigate()
+    
+    const savedGeneralInfo = generalInfo.map((info, num) => <Field key={num} savedInfoState={savedGeneralInfoState} placeholder={info} elementID={num}/>)
+
+    const handleSignup = async () => {
+        setError('')
+        setIsLoading(true)
+
+        try {
+            const email = sessionStorage.getItem('signupEmail') || savedGeneralInfoState[0]?.[0] || ''
+            const password = sessionStorage.getItem('signupPassword') || ''
+            const phoneNumber = savedGeneralInfoState[0]?.[1] || ''
+            const profileInfo = profileInfoState[0] || []
+            const role = isStudent[0] ? 'student' : 'tutor'
+
+            if (!email || !password) {
+                setError('Missing email or password. Please go back to signup page.')
+                setIsLoading(false)
+                return
+            }
+
+            const userData: any = {
+                email,
+                password,
+                name: profileInfo[0] || '',
+                role,
+                phoneNumber
+            }
+
+            if (role === 'student') {
+                userData.studentId = profileInfo[1]
+                userData.major = profileInfo[2]
+                userData.academicYear = profileInfo[3]
+            } else {
+                userData.teacherId = profileInfo[1]
+                userData.school = profileInfo[2]
+                userData.department = profileInfo[3]
+            }
+
+            await signup(userData)
+            
+            // Clear session storage
+            sessionStorage.removeItem('signupEmail')
+            sessionStorage.removeItem('signupPassword')
+            
+            navigate('/account')
+        } catch (err: any) {
+            setError(err.message || 'Signup failed. Please try again.')
+        } finally {
+            setIsLoading(false)
+        }
+    }
 
     const step = stepState[0]
     const cached_steps = [
         AskingInfo_1(stepState, savedGeneralInfo), 
         AskingInfo_2(stepState, isStudent), 
-        AskingInfo_3(stepState, isStudent, savedGeneralInfo)
+        AskingInfo_3(stepState, isStudent, savedGeneralInfo, profileInfoState, handleSignup, isLoading, error)
     ]
 
     return cached_steps[(step ?? 1) - 1]

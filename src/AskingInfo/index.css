@@ -143,4 +143,28 @@
 
     width : calc(100% - 60px);
     height: 50px;
+    
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.info .confirm-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.info .confirm-button.disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.info .error-message {
+    color: #e74c3c;
+    margin: 15px 30px;
+    padding: 10px;
+    background-color: #fadbd8;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
 }

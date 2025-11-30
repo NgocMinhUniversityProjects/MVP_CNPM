@@ -14,7 +14,11 @@
     margin-top: 5vh;
 
     width : 500px;
-    height: 500px;
+    min-height: 500px;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-bottom: 30px;
 
     background: rgba(255, 255, 255, 0.95);
     -webkit-backdrop-filter: blur(20px);
@@ -63,7 +67,8 @@
     background: white;
     border : 2px solid rgba(3, 43, 145, 0.15);
     border-radius: 15px;
-    margin: 15px 30px;
+    margin: 15px auto;
+    width: 85%;
 
     height: 55px;
     justify-content: center;
@@ -138,4 +143,88 @@
 .login .choice-container:active {
     transform: translateY(-1px) scale(0.99);
     box-shadow: var(--shadow-sm);
+}
+
+.login .login-form {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.login .error-message {
+    color: #e74c3c;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fadbd8;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.login .login-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.login .login-input:focus {
+    outline: none;
+    border-color: var(--color-main-light);
+}
+
+.login .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-main-light);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: var(--transition-smooth);
+}
+
+.login .login-button:hover {
+    background-color: var(--color-main-medium);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.login .login-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.login .back-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.login .back-button:hover {
+    background-color: #d5dbdb;
+}
+
+.login .test-info {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #7f8c8d;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.login .choice-container.clickable {
+    cursor: pointer;
 }

@@ -1,7 +1,8 @@
 import { ReactNode } from "react"
 import "./index.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FiLogOut } from "react-icons/fi";
+import { useAuth } from "../context/AuthContext.tsx";
 
 type icon = ReactNode
 type name = string
@@ -17,7 +18,7 @@ function formatEntries(e : [icon, name, href], i : number, highlighted : number)
     const [icon, name, href] = e
     const h = (highlighted === i)
     return (
-        <div className={h ? "entry-container highlighted" : "entry-container"}>
+        <div key={i} className={h ? "entry-container highlighted" : "entry-container"}>
             <div className="icon">{icon}</div>
             <Link className="name" to={href}>{name}</Link>
         </div>
@@ -26,14 +27,21 @@ function formatEntries(e : [icon, name, href], i : number, highlighted : number)
 
 export default function Account_sidebar(props : Account_sidebar_props){
     const {title, entries, highlighted} = props
+    const { logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        await logout();
+        navigate('/');
+    };
 
     return (
         <div className="Ac-sidebar">
             <div className="title">{title}</div>
             {entries.map((e, i) => formatEntries(e, i, highlighted))}
-            <div className="entry-container log-out">
+            <div className="entry-container log-out" onClick={handleLogout}>
                 <FiLogOut className="icon"/>
-                <Link to={"/"} className="name">Log out</Link>
+                <div className="name">Log out</div>
             </div>
         </div>
     )

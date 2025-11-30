@@ -98,6 +98,12 @@
     border-top : 1px solid var(--color-sub-white);
     align-self: center;
     justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.log-out:hover {
+    background: rgba(3, 43, 145, 0.3);
 }
 
 .log-out .icon {

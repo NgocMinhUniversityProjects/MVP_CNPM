@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { AuthProvider } from './context/AuthContext.tsx';
+import { ProtectedRoute } from './components/ProtectedRoute.tsx';
 
 import {Header, Footer} from "./HeaderAndFooter/index.tsx"
 
@@ -45,11 +47,11 @@ function __wrap__(children : React.ReactNode, type : string){
           [<><img src="/PN1.png" alt="Logo" className="header-logo" /> HCMUT Tutor Platform</>, "/"]
         ]} 
         options_right={[
-          ["Home", "/"],
+          type !== "signup" && type !== "login" ? ["Home", "/"] : null,
           type !== "signup" ? ["Sign Up", "/signup"] : ["Sign In", "/login"], 
           type !== "main" ? ["Home", "/main"] : ["Sign In", "/login"],
           type === "about" ? ["Home", "/"] : ["About", "/about"]
-        ]}
+        ].filter(Boolean)}
       />
 
       {children}
@@ -73,7 +75,9 @@ function __wrap__(children : React.ReactNode, type : string){
 }
 
 root.render(
-  <Router>
+  <React.StrictMode>
+    <AuthProvider>
+      <Router>
       <Routes>
         <Route path="/"           element={__wrap__(<IndexPage />, "main")} />
         <Route path="/main"       element={__wrap__(<IndexPage />, "main")} />
@@ -82,20 +86,22 @@ root.render(
         <Route path="/signup"     element={__wrap__(<SignupPage />, "signup")} />
         <Route path="/moreinfo"   element={__wrap__(<AskingInfoPage />, "signup")} /> 
 
-        <Route path="/account"             element={<AccountMain />} />
-        <Route path="/account_main"        element={<AccountMain />} />
-        <Route path="/account_calendar"    element={<AccountCalendar />} />
-        <Route path="/account_book"        element={<AccountBook />} />
-        <Route path="/account_session"     element={<AccountSession />} />
-        <Route path="/account_chat"        element={<AccountChat />} />
-        <Route path="/account_mes"         element={<AccountChat />} />
-        <Route path="/account_doc"         element={<AccountDoc />} />
-        <Route path="/account_forum"       element={<AccountForum />} />
-        <Route path="/account_comunity"    element={<AccountForum />} />
-        <Route path="/account_feedback"    element={<AccountFeedback />} />
-        <Route path="/account_ac"          element={<AccountSetting />} />
+        <Route path="/account"             element={<ProtectedRoute><AccountMain /></ProtectedRoute>} />
+        <Route path="/account_main"        element={<ProtectedRoute><AccountMain /></ProtectedRoute>} />
+        <Route path="/account_calendar"    element={<ProtectedRoute><AccountCalendar /></ProtectedRoute>} />
+        <Route path="/account_book"        element={<ProtectedRoute><AccountBook /></ProtectedRoute>} />
+        <Route path="/account_session"     element={<ProtectedRoute><AccountSession /></ProtectedRoute>} />
+        <Route path="/account_chat"        element={<ProtectedRoute><AccountChat /></ProtectedRoute>} />
+        <Route path="/account_mes"         element={<ProtectedRoute><AccountChat /></ProtectedRoute>} />
+        <Route path="/account_doc"         element={<ProtectedRoute><AccountDoc /></ProtectedRoute>} />
+        <Route path="/account_forum"       element={<ProtectedRoute><AccountForum /></ProtectedRoute>} />
+        <Route path="/account_comunity"    element={<ProtectedRoute><AccountForum /></ProtectedRoute>} />
+        <Route path="/account_feedback"    element={<ProtectedRoute><AccountFeedback /></ProtectedRoute>} />
+        <Route path="/account_ac"          element={<ProtectedRoute><AccountSetting /></ProtectedRoute>} />
 
-        <Route path="/meeting"            element={<MeetingRoom />} />
+        <Route path="/meeting"            element={<ProtectedRoute><MeetingRoom /></ProtectedRoute>} />
       </Routes>
-    </Router>
+      </Router>
+    </AuthProvider>
+  </React.StrictMode>
 );

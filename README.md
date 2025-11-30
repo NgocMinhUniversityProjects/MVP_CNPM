@@ -1,41 +1,56 @@
-# MVP CNPM
+# HCMUT Tutor Platform
 
-Tutor website created as an MVP for the Software engineering course.
+Web platform connecting students and tutors at HCMUT. Created for Software Engineering course (October 2025).
 
-## Access
+## Live Demo
 
-The website is hosted using github pages at [this link](https://ngocminhuniversityprojects.github.io/MVP_CNPM/build/)
+[https://ngocminhuniversityprojects.github.io/MVP_CNPM/build/](https://ngocminhuniversityprojects.github.io/MVP_CNPM/build/)
 
-## How to run
+## Features
 
-A buid is inncluded but you can additionally run via.
+- Login/Signup with JWT authentication
+- Dashboard and account management
+- Schedule management and session booking
+- Messaging, forum, and feedback
+- Document library
 
-For now, run:
+## Tech Stack
+
+- **Frontend**: React 18 + TypeScript
+- **Backend**: Node.js + Express
+- **Auth**: JWT + bcrypt
+
+## Setup
+
+1. **Install dependencies:**
+```bash
+npm install
+cd backend && npm install && cd ..
 ```
+
+2. **Run the application:**
+```bash
+# Terminal 1: Backend
+cd backend && npm start
+
+# Terminal 2: Frontend
 npm start
 ```
 
-And connect to the hosted URl using your browser of choice.
+Backend: `http://localhost:5000` | Frontend: `http://localhost:3000`
 
-## Contents
+## Test Accounts
 
-### Completed
-+ Login / Signup page
-+ Main page
-+ Dashboard
-+ Schedule management
-+ Book a session
-+ View my sessions
-+ Account setting
-+ Messeges
-+ Document library
-+ Forum
-+ Feedback
-  
-### Incomplete
-+ Meeting
-+ Attendance
+| Email | Password | Role |
+|-------|----------|------|
+| student@hcmut.edu.vn | student123 | Student |
+| tutor@hcmut.edu.vn | tutor123 | Tutor |
+| admin@hcmut.edu.vn | admin123 | Admin |
 
+## Notes
 
-All data included is hard coded.
+- Data is hardcoded and stored in-memory (resets on restart)
+- API documentation in `backend/README.md`
+- Created for HCMUT Software Engineering Course, October 2025
+
 
